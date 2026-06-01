@@ -1,0 +1,254 @@
+.birthday-container {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #141e30,
+      #243b55
+    );
+
+  padding: 4rem 1rem;
+}
+
+.background-glow {
+  position: fixed;
+  inset: -50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.15),
+      transparent 70%
+    );
+
+  animation: rotateGlow 20s linear infinite;
+}
+
+.dark-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0);
+
+  transition: all 2s ease;
+
+  z-index: 2;
+}
+
+.dark-overlay.active {
+  background: rgba(0,0,0,.75);
+  backdrop-filter: blur(5px);
+}
+
+.quality {
+  position: absolute;
+
+  padding: 0.8rem 1.4rem;
+
+  color: white;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.25),
+    0 0 10px rgba(255, 255, 255, 0.05);
+
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.2);
+
+  opacity: 0;
+
+  animation: qualityAppear 1s forwards;
+
+  transition:
+    opacity 2s ease,
+    transform 2s ease,
+    filter 2s ease,
+    background 2s ease;
+
+  z-index: 3;
+}
+
+.fade-quality {
+  opacity: 0.15;
+
+  filter: blur(4px);
+
+  transform: scale(0.85);
+
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.main-content {
+  position: relative;
+
+  z-index: 10;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  padding-bottom: 6rem;
+}
+
+.photo-frame {
+
+  width: 320px;
+  height: 320px;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  border: 8px solid white;
+
+  box-shadow:
+    0 0 30px rgba(255,255,255,.5),
+    0 0 100px rgba(255,105,180,.5);
+
+  animation:
+    revealPhoto 1.5s ease,
+    pulse 3s infinite;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  margin-top: 2rem;
+
+  color: white;
+
+  text-align: center;
+
+  font-size: 3rem;
+
+  text-shadow:
+    0 0 20px white;
+}
+
+.subtitle {
+  margin-top: 1rem;
+
+  color: white;
+
+  font-size: 1.3rem;
+
+  text-align: center;
+}
+
+.birthday-letter {
+
+  width: min(950px, 95vw);
+
+  margin-top: 3rem;
+
+  padding: 2rem;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255,255,255,.08);
+
+  backdrop-filter: blur(15px);
+
+  border:
+    1px solid rgba(255,255,255,.15);
+}
+
+.birthday-letter h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.letter-content {
+  color: white;
+}
+
+.paragraph {
+
+  opacity: 0;
+
+  line-height: 1.9;
+
+  font-size: 1.15rem;
+
+  margin-bottom: 1.5rem;
+
+  animation:
+    paragraphAppear 1s forwards;
+}
+
+@keyframes paragraphAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes qualityAppear {
+  from {
+    opacity: 0;
+    transform: scale(.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes revealPhoto {
+  from {
+    opacity: 0;
+    transform: scale(.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%,100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+@keyframes rotateGlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

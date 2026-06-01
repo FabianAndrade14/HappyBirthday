@@ -1,0 +1,65 @@
+<div class="birthday-container">
+
+  <div class="background-glow"></div>
+
+  <div
+    class="dark-overlay"
+    [class.active]="showPhoto">
+  </div>
+
+  <div
+    *ngFor="let quality of qualities"
+    class="quality"
+    [class.fade-quality]="showPhoto"
+    [style.top.%]="quality.top"
+    [style.left.%]="quality.left">
+
+    {{ quality.text }}
+
+  </div>
+
+  <div
+    class="main-content"
+    *ngIf="showPhoto">
+
+    <div class="photo-frame">
+
+      <img
+        src="assets/images/Dianita.png"
+        alt="Dianita">
+
+    </div>
+
+    <h1>
+      🎉 Feliz Cumpleaños, Dianita 🎉
+    </h1>
+
+    <p class="subtitle">
+      Hoy celebramos la vida de una mujer extraordinaria.
+    </p>
+
+    <div
+      class="birthday-letter"
+      *ngIf="showLetter">
+
+      <h2>
+        💖 Una carta para ti 💖
+      </h2>
+
+      <div class="letter-content">
+
+        <p
+          *ngFor="let paragraph of visibleParagraphs"
+          class="paragraph">
+
+          {{ paragraph }}
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,48 @@
+.home {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    -45deg,
+    #ff758c,
+    #ff7eb3,
+    #845ec2,
+    #2c73d2
+  );
+
+  background-size: 400% 400%;
+
+  animation: gradient 10s ease infinite;
+}
+
+.content {
+  text-align: center;
+  color: white;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  button {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    transition: .3s;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes gradient {
+  0% {background-position: 0 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0 50%;}
+}
